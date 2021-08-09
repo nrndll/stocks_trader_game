@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import CompaniesList from '../components/CompaniesList';
+import CompanyDetail from '../components/CompanyDetail';
 
 const MainContainer = () => {
 
@@ -42,6 +43,7 @@ const MainContainer = () => {
     <>
     <h2>Hello World</h2>
     <CompaniesList companies={companies} onCompanySelected={onCompanySelected}/>
+    <CompanyDetail company={chosenCompany}/>
     
     </>
     )
