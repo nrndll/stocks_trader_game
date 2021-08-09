@@ -7,7 +7,13 @@ const MainContainer = () => {
     const [companies , setCompanies] = useState([]);
     // const [player, setPlayer] = useState("")
     const [totalCapital, setTotalCapital] = useState(100000);
-    const [totalShares, setTotalShares] = useState([]);
+    const [totalShares, setTotalShares] = useState([
+        {"company": "drna", "shares": 0},
+        {"company": "icad", "shares": 0},
+        {"company": "aapl", "shares": 0},
+        {"company": "ftft", "shares": 0},
+        {"company": "amti", "shares": 0},
+      ]);
     const [chosenCompany, setChosenCompany] = useState(null);
 
 
@@ -42,6 +48,7 @@ const MainContainer = () => {
     return (
     <>
     <h2>Hello World</h2>
+    <h2>Total Capital: ${totalCapital}</h2>
     <CompaniesList companies={companies} onCompanySelected={onCompanySelected}/>
     <CompanyDetail company={chosenCompany}/>
     
