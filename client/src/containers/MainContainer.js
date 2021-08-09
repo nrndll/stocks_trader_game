@@ -5,8 +5,10 @@ const MainContainer = () => {
 
     const [companies , setCompanies] = useState([]);
     // const [player, setPlayer] = useState("")
-    const [totalCapital, steTotalCapital] = useState(100000);
+    const [totalCapital, setTotalCapital] = useState(100000);
     const [totalShares, setTotalShares] = useState([]);
+    const [chosenCompany, setChosenCompany] = useState(null);
+
 
     useEffect(() => {
         getCompanies();
@@ -32,10 +34,15 @@ const MainContainer = () => {
         .then(data => setCompanies(data))
     }
 
+    const  onCompanySelected = (company) => {
+        setChosenCompany(company)  
+    }
+
     return (
     <>
     <h2>Hello World</h2>
-    <CompaniesList companies={companies}/>
+    <CompaniesList companies={companies} onCompanySelected={onCompanySelected}/>
+    
     </>
     )
 }
