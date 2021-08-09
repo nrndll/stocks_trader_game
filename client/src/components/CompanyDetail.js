@@ -3,8 +3,9 @@ const CompanyDetail = ({company}) => {
     if (company === null){
         return null
     }
-    const handlePurchase = () => {
-       return null
+    const handlePurchase = (event) => {
+        event.preventDefault();
+        console.log(event.target.value)
 
     }
     return (
@@ -12,8 +13,8 @@ const CompanyDetail = ({company}) => {
         <div>
             <form onSubmit={handlePurchase}>
                 
-                <label htmlFor="name">Purchase Shares</label>
-                <input type="number" /> 
+                <label htmlFor="number">Purchase Shares</label>
+                <input type="number" name="number"  /> 
                 <input type="submit" />
             </form>
 
