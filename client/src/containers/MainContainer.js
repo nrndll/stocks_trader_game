@@ -12,7 +12,7 @@ const MainContainer = () => {
     }, []);
 
     const getCompanies = () => {
-        fetch('https://www.styvio.com/api/kxin', 'https://www.styvio.com/api/aapl')
+        fetch('https://www.styvio.com/api/kxin')
         .then(res => res.json())
         .then(companiesData => setCompanies(companiesData));
     };
