@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const CompanyDetail = ({ company, updateTotalsPurchase}) => {
+const CompanyDetail = ({ company, updateTotalsPurchase, updateTotalsSale}) => {
 
     const [runningTotal, setRunningTotal] = useState(0)
     if (company === null){
@@ -12,7 +12,7 @@ const CompanyDetail = ({ company, updateTotalsPurchase}) => {
     }
 
     const shareSalesTotalValue = (event) => {
-        setRunningTotal((company.sixMonthPrices[0] * 0.9) * event.target.value)
+              setRunningTotal((company.sixMonthPrices[0] * 0.9) * event.target.value)
     }
 
     const handlePurchase = (event) => {
@@ -23,8 +23,8 @@ const CompanyDetail = ({ company, updateTotalsPurchase}) => {
 
     const handleSelling = (event) => {
         event.preventDefault();
-        const newTotalCost = (company.sixMonthPrices[0] * 0.9) * event.target.selling.value
-        updateTotalsPurchase(newTotalCost, company.ticker, event.target.selling.value)
+        const newTotalSale = (company.sixMonthPrices[0] * 0.9) * event.target.selling.value
+        updateTotalsSale(newTotalSale, company.ticker, event.target.selling.value)
     }
 
     return (
@@ -37,19 +37,18 @@ const CompanyDetail = ({ company, updateTotalsPurchase}) => {
             <form onSubmit={handlePurchase}>
                 
                 <label htmlFor="purchase">Purchase Shares</label>
-                <input type="number" name="purchase" onChange={sharesTotalValue} /> 
+                <input type="number" min = "0" name="purchase" onChange={sharesTotalValue} /> 
                 <input type="submit" />
             </form>
 
             <form onSubmit={handleSelling}>
                 
                 <label htmlFor="selling">Sell Shares</label>
-                <input type="number" name="selling" onChange={shareSalesTotalValue} /> 
+                <input type ="number" min = "0" name="selling" onChange={shareSalesTotalValue} /> 
                 <input type="submit" />
-            </form>
+            </form> 
 
             
-
 
             <h3>{company.shortName}</h3>
             <h4>{company.ticker}</h4>

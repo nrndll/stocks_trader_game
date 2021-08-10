@@ -52,13 +52,24 @@ const MainContainer = () => {
         sharesToUpdate.shares += parseInt(numShares)
         setTotalShares(newTotalShares);
     }
+
+    const updateTotalsSale = (totalSale, ticker, numShares) => {
+        setTotalCapital(totalCapital + totalSale);
+        const newTotalShares = totalShares;
+        const sharesToUpdate = newTotalShares.find(element => element.company === ticker)
+        sharesToUpdate.shares -= parseInt(numShares)
+        setTotalShares(newTotalShares);
+    }
+
+
+
     
     return (
     <>
     <h2>Hello World</h2>
     <h2>Total Capital: ${totalCapital}</h2>
     <CompaniesList companies={companies} onCompanySelected={onCompanySelected}/>
-    <CompanyDetail company={chosenCompany} updateTotalsPurchase={updateTotalsPurchase}/>
+    <CompanyDetail company={chosenCompany} updateTotalsPurchase={updateTotalsPurchase} updateTotalsSale={updateTotalsSale}/>
     <TotalSharesList totalShares={totalShares}/>
     </>
     )
