@@ -5,7 +5,12 @@ const CompanyDetail = ({company}) => {
     }
     const handlePurchase = (event) => {
         event.preventDefault();
-        console.log(parseInt(event.target.number.value))
+        console.log(parseInt(event.target.purchase.value))
+
+    }
+
+    const sharesTotalValue = (event) => {
+        console.log(event.target.value);
 
     }
     return (
@@ -13,8 +18,8 @@ const CompanyDetail = ({company}) => {
         <div>
             <form onSubmit={handlePurchase}>
                 
-                <label htmlFor="number">Purchase Shares</label>
-                <input type="number" name="number"  /> 
+                <label htmlFor="purchase">Purchase Shares</label>
+                <input type="number" name="purchase" onChange={sharesTotalValue} /> 
                 <input type="submit" />
             </form>
 
