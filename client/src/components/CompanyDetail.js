@@ -9,8 +9,6 @@ const CompanyDetail = ({ company, updateTotalsPurchase}) => {
 
     const sharesTotalValue = (event) => {
         setRunningTotal(company.sixMonthPrices[0] * event.target.value)
-        
-
     }
 
     const handlePurchase = (event) => {
