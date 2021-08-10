@@ -1,8 +1,15 @@
+import { useState } from "react";
 
 const CompanyDetail = ({company}) => {
+
+    const [runningTotal, setRunningTotal] = useState(0)
     if (company === null){
         return null
     }
+
+    
+    
+    
     const handlePurchase = (event) => {
         event.preventDefault();
         console.log(parseInt(event.target.purchase.value))
@@ -10,12 +17,17 @@ const CompanyDetail = ({company}) => {
     }
 
     const sharesTotalValue = (event) => {
-        console.log(event.target.value);
+        setRunningTotal(company.sixMonthPrices[0] * event.target.value)
+        
 
     }
     return (
 
         <div>
+            <h2>
+                Total Value:  ${runningTotal}
+            </h2>
+
             <form onSubmit={handlePurchase}>
                 
                 <label htmlFor="purchase">Purchase Shares</label>
