@@ -33,6 +33,7 @@ const CompanyDetail = ({ company, updateTotalsPurchase}) => {
 
 
             <h3>{company.shortName}</h3>
+            <h4>{company.ticker}</h4>
             <img src = {company.logoURL} alt = "company logo "/>
             {/* <p>{company.currentPrice}</p> */}
             <p>Current Month Price: ${company.sixMonthPrices[0]}</p>

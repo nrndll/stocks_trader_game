@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import CompaniesList from '../components/CompaniesList';
 import CompanyDetail from '../components/CompanyDetail';
+import TotalSharesList from '../components/TotalSharesList';
 
 const MainContainer = () => {
 
@@ -8,14 +9,13 @@ const MainContainer = () => {
     // const [player, setPlayer] = useState("")
     const [totalCapital, setTotalCapital] = useState(100000);
     const [totalShares, setTotalShares] = useState([
-        { "company": "DRNA", "shares": 0 },
-        { "company": "ICAD", "shares": 0 },
-        { "company": "AAPL", "shares": 0 },
-        { "company": "FTFT", "shares": 0 },
-        { "company": "AMTI", "shares": 0 },
+        { "company": "DRNA", "shares": 0, "shortName": "Dicerna Pharmaceuticals, Inc."},
+        { "company": "ICAD", "shares": 0, "shortName": "ICAD Inc."},
+        { "company": "AAPL", "shares": 0, "shortName": "Apple Inc."},
+        { "company": "FTFT", "shares": 0, "shortName": "Future FinTech Group Inc."},
+        { "company": "AMTI", "shares": 0, "shortName": "Applied Molecular Transport Inc."},
       ]);
     const [chosenCompany, setChosenCompany] = useState(null);
-
 
     useEffect(() => {
         getCompanies();
@@ -53,16 +53,13 @@ const MainContainer = () => {
         setTotalShares(newTotalShares);
     }
     
-
-
-
     return (
     <>
     <h2>Hello World</h2>
     <h2>Total Capital: ${totalCapital}</h2>
     <CompaniesList companies={companies} onCompanySelected={onCompanySelected}/>
     <CompanyDetail company={chosenCompany} updateTotalsPurchase={updateTotalsPurchase}/>
-    
+    <TotalSharesList totalShares={totalShares}/>
     </>
     )
 }
