@@ -45,6 +45,9 @@ const MainContainer = () => {
         setChosenCompany(company)  
     }
 
+    const remainingCapital = totalCost => {
+        setTotalCapital(totalCapital - totalCost);
+    }
     
 
 
@@ -54,7 +57,7 @@ const MainContainer = () => {
     <h2>Hello World</h2>
     <h2>Total Capital: ${totalCapital}</h2>
     <CompaniesList companies={companies} onCompanySelected={onCompanySelected}/>
-    <CompanyDetail company={chosenCompany} handlePurchase={handlePurchase}/>
+    <CompanyDetail company={chosenCompany} remainingCapital={remainingCapital}/>
     
     </>
     )
