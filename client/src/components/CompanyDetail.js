@@ -31,6 +31,15 @@ const CompanyDetail = ({ company, updateTotalsPurchase}) => {
                 <input type="submit" />
             </form>
 
+            {/* <form onSubmit={handleSelling}>
+                
+                <label htmlFor="selling">Sell Shares</label>
+                <input type="number" name="selling" onChange={sharesTotalValue} /> 
+                <input type="submit" />
+            </form>
+
+             */}
+
 
             <h3>{company.shortName}</h3>
             <h4>{company.ticker}</h4>
