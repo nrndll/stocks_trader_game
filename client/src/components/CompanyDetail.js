@@ -5,7 +5,7 @@ const CompanyDetail = ({company}) => {
     }
     const handlePurchase = (event) => {
         event.preventDefault();
-        console.log(event.target.value)
+        console.log(parseInt(event.target.number.value))
 
     }
     return (
@@ -20,7 +20,7 @@ const CompanyDetail = ({company}) => {
 
 
             <h3>{company.shortName}</h3>
-            <img src = {company.logoURL} alt = "image of company logo "/>
+            <img src = {company.logoURL} alt = "company logo "/>
             {/* <p>{company.currentPrice}</p> */}
             <p>Current Month Price: ${company.sixMonthPrices[0]}</p>
             <p>{company.companyDescription}</p>
