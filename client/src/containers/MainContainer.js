@@ -45,12 +45,16 @@ const MainContainer = () => {
         setChosenCompany(company)  
     }
 
+    
+
+
+
     return (
     <>
     <h2>Hello World</h2>
     <h2>Total Capital: ${totalCapital}</h2>
     <CompaniesList companies={companies} onCompanySelected={onCompanySelected}/>
-    <CompanyDetail company={chosenCompany}/>
+    <CompanyDetail company={chosenCompany} handlePurchase={handlePurchase}/>
     
     </>
     )
