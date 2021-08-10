@@ -11,10 +11,20 @@ const CompanyDetail = ({ company, updateTotalsPurchase}) => {
         setRunningTotal(company.sixMonthPrices[0] * event.target.value)
     }
 
+    const shareSalesTotalValue = (event) => {
+        setRunningTotal((company.sixMonthPrices[0] * 0.9) * event.target.value)
+    }
+
     const handlePurchase = (event) => {
         event.preventDefault();
         const newTotalCost = company.sixMonthPrices[0] * event.target.purchase.value
         updateTotalsPurchase(newTotalCost, company.ticker, event.target.purchase.value)
+    }
+
+    const handleSelling = (event) => {
+        event.preventDefault();
+        const newTotalCost = (company.sixMonthPrices[0] * 0.9) * event.target.selling.value
+        updateTotalsPurchase(newTotalCost, company.ticker, event.target.selling.value)
     }
 
     return (
@@ -31,14 +41,14 @@ const CompanyDetail = ({ company, updateTotalsPurchase}) => {
                 <input type="submit" />
             </form>
 
-            {/* <form onSubmit={handleSelling}>
+            <form onSubmit={handleSelling}>
                 
                 <label htmlFor="selling">Sell Shares</label>
-                <input type="number" name="selling" onChange={sharesTotalValue} /> 
+                <input type="number" name="selling" onChange={shareSalesTotalValue} /> 
                 <input type="submit" />
             </form>
 
-             */}
+            
 
 
             <h3>{company.shortName}</h3>
