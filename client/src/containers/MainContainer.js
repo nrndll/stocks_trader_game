@@ -8,11 +8,11 @@ const MainContainer = () => {
     // const [player, setPlayer] = useState("")
     const [totalCapital, setTotalCapital] = useState(100000);
     const [totalShares, setTotalShares] = useState([
-        {"company": "drna", "shares": 0},
-        {"company": "icad", "shares": 0},
-        {"company": "aapl", "shares": 0},
-        {"company": "ftft", "shares": 0},
-        {"company": "amti", "shares": 0},
+        { "company": "DRNA", "shares": 0 },
+        { "company": "ICAD", "shares": 0 },
+        { "company": "AAPL", "shares": 0 },
+        { "company": "FTFT", "shares": 0 },
+        { "company": "AMTI", "shares": 0 },
       ]);
     const [chosenCompany, setChosenCompany] = useState(null);
 
@@ -45,8 +45,12 @@ const MainContainer = () => {
         setChosenCompany(company)  
     }
 
-    const remainingCapital = totalCost => {
+    const updateTotalsPurchase = (totalCost, ticker, numShares) => {
         setTotalCapital(totalCapital - totalCost);
+        const newTotalShares = totalShares;
+        const sharesToUpdate = newTotalShares.find(element => element.company === ticker)
+        sharesToUpdate.shares += parseInt(numShares)
+        setTotalShares(newTotalShares);
     }
     
 
@@ -57,7 +61,7 @@ const MainContainer = () => {
     <h2>Hello World</h2>
     <h2>Total Capital: ${totalCapital}</h2>
     <CompaniesList companies={companies} onCompanySelected={onCompanySelected}/>
-    <CompanyDetail company={chosenCompany} remainingCapital={remainingCapital}/>
+    <CompanyDetail company={chosenCompany} updateTotalsPurchase={updateTotalsPurchase}/>
     
     </>
     )
