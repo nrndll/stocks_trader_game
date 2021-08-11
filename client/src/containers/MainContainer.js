@@ -17,6 +17,8 @@ const MainContainer = () => {
       ]);
     const [chosenCompany, setChosenCompany] = useState(null);
 
+    const [playerId, setplayerId] = useState("");
+
     useEffect(() => {
         getCompanies();
         playerInfo();
@@ -42,15 +44,17 @@ const MainContainer = () => {
         .then(data => setCompanies(data))
     }
 
+
     const playerInfo = () => {
        PlayerInfoService.getPlayerInfo()
        .then(playerInfo => {
         setTotalCapital(playerInfo[0].totalCapital)
         setTotalShares(playerInfo[0].totalShares)
+        setplayerId(playerInfo[0]._id)
        });
     }
 
-    const  onCompanySelected = (company) => {
+        const  onCompanySelected = (company) => {
         setChosenCompany(company)  
     }
 
@@ -70,10 +74,20 @@ const MainContainer = () => {
         setTotalShares(newTotalShares);
     }
 
+    useEffect (() => {
+        PlayerInfoService.updatePlayerInfo({
+            _id: playerId,
+            totalCapital: totalCapital,
+            totalShares: totalShares
+        })
+       
+    }, [totalCapital]);
+
+
     return (
     <>
     <h2>Hello World</h2>
-    <h2>Total Capital: ${totalCapital}</h2>
+    <h2>Player Capital: ${totalCapital}</h2>
     <CompaniesList companies={companies} onCompanySelected={onCompanySelected}/>
     <CompanyDetail company={chosenCompany} updateTotalsPurchase={updateTotalsPurchase} updateTotalsSale={updateTotalsSale}/>
     <TotalSharesList totalShares={totalShares}/>
