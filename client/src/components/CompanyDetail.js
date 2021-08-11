@@ -30,32 +30,38 @@ const CompanyDetail = ({ company, updateTotalsPurchase, updateTotalsSale}) => {
     return (
 
         <div>
-            <h2>
+            <h2 id="total-value">
                 Total Value:  ${runningTotal}
             </h2>
+            <section id="trading-form">
 
-            <form onSubmit={handlePurchase}>
-                
-                <label htmlFor="purchase">Purchase Shares</label>
-                <input type="number" min = "0" name="purchase" onChange={sharesTotalValue} /> 
-                <input type="submit" />
-            </form>
+                <form onSubmit={handlePurchase}>
+                    
+                    <label htmlFor="purchase">Purchase Shares</label>
+                    <input type="number" min = "0" name="purchase" onChange={sharesTotalValue} /> 
+                    <input type="submit" />
+                </form>
 
-            <form onSubmit={handleSelling}>
-                
-                <label htmlFor="selling">Sell Shares</label>
-                <input type ="number" min = "0" name="selling" onChange={shareSalesTotalValue} /> 
-                <input type="submit" />
-            </form> 
+                <form onSubmit={handleSelling}>
+                    
+                    <label htmlFor="selling">Sell Shares</label>
+                    <input type ="number" min = "0" name="selling" onChange={shareSalesTotalValue} /> 
+                    <input type="submit" />
+                </form> 
 
-            
+            </section>
 
-            <h3>{company.shortName}</h3>
-            <h4>{company.ticker}</h4>
-            <img src = {company.logoURL} alt = "company logo "/>
-            {/* <p>{company.currentPrice}</p> */}
-            <p>Current Month Price: ${company.sixMonthPrices[0]}</p>
-            <p>{company.companyDescription}</p>
+
+            <section id="company-description">
+
+                <h3>{company.shortName}</h3>
+                <h4>{company.ticker}</h4>
+                <img src = {company.logoURL} alt = "company logo "/>
+                {/* <p>{company.currentPrice}</p> */}
+                <p>Current Month Price: ${company.sixMonthPrices[0]}</p>
+                <p>{company.companyDescription}</p>
+
+            </section>
 
 
             
