@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import CompaniesList from '../components/CompaniesList';
 import CompanyDetail from '../components/CompanyDetail';
 import TotalSharesList from '../components/TotalSharesList';
+import "./style.css"
 
 const MainContainer = () => {
 
@@ -65,13 +66,29 @@ const MainContainer = () => {
 
     
     return (
-    <>
-    <h2>Hello World</h2>
-    <h2>Total Capital: ${totalCapital}</h2>
-    <CompaniesList companies={companies} onCompanySelected={onCompanySelected}/>
-    <CompanyDetail company={chosenCompany} updateTotalsPurchase={updateTotalsPurchase} updateTotalsSale={updateTotalsSale}/>
-    <TotalSharesList totalShares={totalShares}/>
-    </>
+    <section class="container">
+        <header>
+           
+            <img  src={process.env.PUBLIC_URL + '/img/wolves.jpg'}></img>
+            <div id="app-title">Online trader Training Game</div>
+        
+        </header>
+
+        <div id="trading-container">
+            
+            <h2>Total Capital: ${totalCapital}</h2>
+            <TotalSharesList totalShares={totalShares}/>
+            
+        </div>
+
+        <div id="trading-zone-container">
+           
+            <CompaniesList companies={companies} onCompanySelected={onCompanySelected}/>
+            <CompanyDetail company={chosenCompany} updateTotalsPurchase={updateTotalsPurchase} updateTotalsSale={updateTotalsSale}/>
+        
+        </div>
+        
+    </section>
     )
 }
 

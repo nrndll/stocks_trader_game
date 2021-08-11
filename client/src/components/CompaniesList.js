@@ -13,10 +13,12 @@ const CompaniesList = ({companies, onCompanySelected}) => {
     }
 
     return (
-        <select defaultValue="" onChange = {handleChange}>
-            <option value="" selected disabled>Choose a company</option>
-            {companyOptions}
-        </select>
+        <section id="choose-company">
+            <select defaultValue="" onChange = {handleChange}>
+                <option value="" selected disabled>Choose a company</option>
+                {companyOptions}
+            </select>
+        </section>
     )
 }
 
