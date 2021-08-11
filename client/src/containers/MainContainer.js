@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import CompaniesList from '../components/CompaniesList';
 import CompanyDetail from '../components/CompanyDetail';
 import TotalSharesList from '../components/TotalSharesList';
+import PlayerInfoService from '../services/PlayerInfoService';
 
 const MainContainer = () => {
 
     const [companies , setCompanies] = useState([]);
-    // const [player, setPlayer] = useState("")
-    const [totalCapital, setTotalCapital] = useState(100000);
+    const [totalCapital, setTotalCapital] = useState(0);
     const [totalShares, setTotalShares] = useState([
         { "company": "DRNA", "shares": 0, "shortName": "Dicerna Pharmaceuticals, Inc."},
         { "company": "ICAD", "shares": 0, "shortName": "ICAD Inc."},
@@ -19,6 +19,7 @@ const MainContainer = () => {
 
     useEffect(() => {
         getCompanies();
+        playerInfo();
     }, []);
 
     const getCompanies = () => {
@@ -41,6 +42,14 @@ const MainContainer = () => {
         .then(data => setCompanies(data))
     }
 
+    const playerInfo = () => {
+       PlayerInfoService.getPlayerInfo()
+       .then(playerInfo => {
+        setTotalCapital(playerInfo[0].totalCapital)
+        setTotalShares(playerInfo[0].totalShares)
+       });
+    }
+
     const  onCompanySelected = (company) => {
         setChosenCompany(company)  
     }
@@ -61,9 +70,6 @@ const MainContainer = () => {
         setTotalShares(newTotalShares);
     }
 
-
-
-    
     return (
     <>
     <h2>Hello World</h2>
