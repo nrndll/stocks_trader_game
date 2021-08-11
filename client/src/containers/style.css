@@ -28,12 +28,14 @@
 
 }
 
-#trading-container > h2{
+/* #trading-container > h2{
     
-}
+} */
 
 #trading-container > ul > li {
-    color: white;
+    color: black;
+    font: bolder;
+    font-size: larger;
     display: inline-block;
     margin: 15px;
 }

@@ -17,8 +17,8 @@ const MainContainer = () => {
         { "company": "AMTI", "shares": 0, "shortName": "Applied Molecular Transport Inc."},
       ]);
     const [chosenCompany, setChosenCompany] = useState(null);
-
     const [playerId, setplayerId] = useState("");
+    const [currentMonth, setCurrentMonth] = useState(0);
 
     useEffect(() => {
         getCompanies();
@@ -44,7 +44,6 @@ const MainContainer = () => {
         Promise.all([promise1, promise2, promise3, promise4, promise5])
         .then(data => setCompanies(data))
     }
-
 
     const playerInfo = () => {
        PlayerInfoService.getPlayerInfo()
@@ -84,6 +83,9 @@ const MainContainer = () => {
        
     }, [totalCapital]);
 
+    const handleNextMonth = event => {
+        setCurrentMonth(currentMonth + 5);
+    }
 
     return (
     <section class="container">
@@ -97,6 +99,7 @@ const MainContainer = () => {
         <div id="trading-container">
             
             <h2>Total Capital: ${totalCapital}</h2>
+            <button onClick={handleNextMonth}>ADVANCE CURRENT PRICE</button>
             <TotalSharesList totalShares={totalShares}/>
             
         </div>
@@ -104,7 +107,7 @@ const MainContainer = () => {
         <div id="trading-zone-container">
            
             <CompaniesList companies={companies} onCompanySelected={onCompanySelected}/>
-            <CompanyDetail company={chosenCompany} updateTotalsPurchase={updateTotalsPurchase} updateTotalsSale={updateTotalsSale}/>
+            <CompanyDetail company={chosenCompany} currentMonth={currentMonth} updateTotalsPurchase={updateTotalsPurchase} updateTotalsSale={updateTotalsSale}/>
         
         </div>
         
