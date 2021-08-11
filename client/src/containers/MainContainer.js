@@ -86,7 +86,7 @@ const MainContainer = () => {
 
     return (
     <>
-    <h2>Hello World</h2>
+    <h2>Hello Boys</h2>
     <h2>Player Capital: ${totalCapital}</h2>
     <CompaniesList companies={companies} onCompanySelected={onCompanySelected}/>
     <CompanyDetail company={chosenCompany} updateTotalsPurchase={updateTotalsPurchase} updateTotalsSale={updateTotalsSale}/>
