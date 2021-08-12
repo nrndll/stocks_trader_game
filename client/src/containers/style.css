@@ -3,9 +3,8 @@
     display: flex;
     background-color: black;
     color:peru;
-    font-family:'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif ;
+    font-family:Arial;
 }
-
 .container > header > img{
     
     width: 18cm;
@@ -23,32 +22,37 @@
 }
 
 #trading-container{
-    color:lightgray;
-    display: flex;
-
+    padding-left: 1cm;   
+   
 }
 
-/* #trading-container > h2{
-    
-} */
+
 
 #trading-container > ul > li {
     color: black;
-    font: bolder;
-    font-size: larger;
+    font-family: arial black;
+    font-size:large;
     display: inline-block;
-    margin: 15px;
+    margin: 10px;
 }
 
 #trading-zone-container{
-    display: flex;
-    justify-content: center;
+    /* display: flex; */
+    padding-left: 12cm;
+    /* justify-content: center; */
+  
 }
 
 #choose-company > select{
     color: black;
     width: 500px;
     height: 1cm;
+}
+
+#trading-container > button{
+   border-radius: 8%;
+   padding:13px;
+  
 }
 
 

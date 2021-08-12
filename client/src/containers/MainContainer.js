@@ -105,8 +105,9 @@ const MainContainer = () => {
         </div>
 
         <div id="trading-zone-container">
-           
+          
             <CompaniesList companies={companies} onCompanySelected={onCompanySelected}/>
+            
             <CompanyDetail company={chosenCompany} currentMonth={currentMonth} updateTotalsPurchase={updateTotalsPurchase} updateTotalsSale={updateTotalsSale}/>
         
         </div>
