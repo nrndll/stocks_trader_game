@@ -15,7 +15,7 @@ const CompaniesList = ({companies, onCompanySelected}) => {
     return (
         <section id="choose-company">
             <select defaultValue="" onChange = {handleChange}>
-                <option value="" selected disabled>Choose a company</option>
+                <option value="" selected disabled>Choose a company to buy or sell shares from:</option>
                 {companyOptions}
             </select>
         </section>

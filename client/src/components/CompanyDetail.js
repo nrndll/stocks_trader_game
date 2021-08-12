@@ -57,7 +57,7 @@ const CompanyDetail = ({ company, currentMonth, updateTotalsPurchase, updateTota
                 <h3>{company.shortName}</h3>
                 <h4>{company.ticker}</h4>
                 <img src = {company.logoURL} alt = "company logo "/>
-                <p>Current Month Price: ${company.sixMonthPrices[currentMonth]}</p>
+                <h1>Current Month Price: ${company.sixMonthPrices[currentMonth]}</h1>
                 <p>{company.companyDescription}</p>
 
             </section>

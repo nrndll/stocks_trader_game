@@ -92,13 +92,13 @@ const MainContainer = () => {
         <header>
            
             <img  src={process.env.PUBLIC_URL + '/img/wolves.jpg'}></img>
-            <div id="app-title">Online trader Training Game</div>
+            <div id="app-title">Online Trader Training Game</div>
         
         </header>
 
         <div id="trading-container">
             
-            <h2>Total Capital: ${totalCapital}</h2>
+            <h2>Player Capital: ${totalCapital}</h2>
             <button onClick={handleNextMonth}>ADVANCE CURRENT PRICE</button>
             <TotalSharesList totalShares={totalShares}/>
             
