@@ -3,6 +3,7 @@ import CompaniesList from '../components/CompaniesList';
 import CompanyDetail from '../components/CompanyDetail';
 import TotalSharesList from '../components/TotalSharesList';
 import PlayerInfoService from '../services/PlayerInfoService';
+import "./style.css"
 
 const MainContainer = () => {
 
@@ -16,8 +17,8 @@ const MainContainer = () => {
         { "company": "AMTI", "shares": 0, "shortName": "Applied Molecular Transport Inc."},
       ]);
     const [chosenCompany, setChosenCompany] = useState(null);
-
     const [playerId, setplayerId] = useState("");
+    const [currentMonth, setCurrentMonth] = useState(0);
 
     useEffect(() => {
         getCompanies();
@@ -43,7 +44,6 @@ const MainContainer = () => {
         Promise.all([promise1, promise2, promise3, promise4, promise5])
         .then(data => setCompanies(data))
     }
-
 
     const playerInfo = () => {
        PlayerInfoService.getPlayerInfo()
@@ -83,15 +83,36 @@ const MainContainer = () => {
        
     }, [totalCapital]);
 
+    const handleNextMonth = event => {
+        setCurrentMonth(currentMonth + 5);
+    }
 
     return (
-    <>
-    <h2>Hello Boys</h2>
-    <h2>Player Capital: ${totalCapital}</h2>
-    <CompaniesList companies={companies} onCompanySelected={onCompanySelected}/>
-    <CompanyDetail company={chosenCompany} updateTotalsPurchase={updateTotalsPurchase} updateTotalsSale={updateTotalsSale}/>
-    <TotalSharesList totalShares={totalShares}/>
-    </>
+    <section class="container">
+        <header>
+           
+            <img  src={process.env.PUBLIC_URL + '/img/wolves.jpg'}></img>
+            <div id="app-title">Online Trader Training Game</div>
+        
+        </header>
+
+        <div id="trading-container">
+            
+            <h2>Player Capital: ${totalCapital}</h2>
+            <button onClick={handleNextMonth}>ADVANCE CURRENT PRICE</button>
+            <TotalSharesList totalShares={totalShares}/>
+            
+        </div>
+
+        <div id="trading-zone-container">
+          
+            <CompaniesList companies={companies} onCompanySelected={onCompanySelected}/>
+            
+            <CompanyDetail company={chosenCompany} currentMonth={currentMonth} updateTotalsPurchase={updateTotalsPurchase} updateTotalsSale={updateTotalsSale}/>
+        
+        </div>
+        
+    </section>
     )
 }
 

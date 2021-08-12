@@ -1,0 +1,60 @@
+
+.container > header{
+    display: flex;
+    background-color: black;
+    color:peru;
+    font-family:Arial;
+}
+.container > header > img{
+    
+    width: 18cm;
+    height: 4cm;
+}
+
+#app-title{
+
+   font-size: 45px;
+   display: flex;
+   align-items:center;
+   padding-left: 3cm;
+
+
+}
+
+#trading-container{
+    padding-left: 1cm;   
+   
+}
+
+
+
+#trading-container > ul > li {
+    color: black;
+    font-family: arial black;
+    font-size:large;
+    display: inline-block;
+    margin: 10px;
+}
+
+#trading-zone-container{
+    /* display: flex; */
+    padding-left: 12cm;
+    /* justify-content: center; */
+  
+}
+
+#choose-company > select{
+    color: black;
+    width: 500px;
+    height: 1cm;
+}
+
+#trading-container > button{
+   border-radius: 8%;
+   padding:13px;
+  
+}
+
+
+
+
