@@ -88,7 +88,7 @@ const MainContainer = () => {
     }
 
     return (
-    <section class="container">
+    <section className="container">
         <header>
            
             <img  src={process.env.PUBLIC_URL + '/img/wolves.jpg'}></img>
